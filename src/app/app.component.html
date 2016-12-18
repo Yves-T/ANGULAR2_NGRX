@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-item-list [items]="items | async"
+                   (deleted)="deleteItem($event)"
+                   (selected)="selectItem($event)">
+    </app-item-list>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-item-detail [item]="selectedItem | async"
+                     (saved)="saveItem($event)"
+                     (cancelled)="resetItem($event)">
+    </app-item-detail>
+  </div>
+</div>
